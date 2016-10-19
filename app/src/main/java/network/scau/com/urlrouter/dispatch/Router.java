@@ -1,4 +1,4 @@
-package network.scau.com.urlrouter;
+package network.scau.com.urlrouter.dispatch;
 
 import android.app.Activity;
 import android.content.Context;
@@ -6,13 +6,16 @@ import android.content.Intent;
 import android.net.Uri;
 import android.os.Parcelable;
 
+import java.util.ArrayList;
+import java.util.HashMap;
+import java.util.List;
 import java.util.Map;
 
 import network.scau.com.urlrouter.c.ERROR_Activity;
-import network.scau.com.urlrouter.dispatch.IRouterItem;
-import network.scau.com.urlrouter.dispatch.RouterProcessFactor;
 import network.scau.com.urlrouter.map.RouterMap;
 import network.scau.com.urlrouter.map.RouterMapFactor;
+
+import static android.R.id.list;
 
 /**
  * Created by Administrator on 2016/9/10 0010.
@@ -74,4 +77,27 @@ public class Router {
 
     }
 
+    public static List<String> getParamsNamesList(Intent intent){
+        List<String> list = intent.getStringArrayListExtra(RouterProcessFactor.PARAMS_NAMES);
+
+        return list;
+    }
+
+    public static Map<String,String> getParamsMap(Intent intent){
+        List<String> paramsNamesList = getParamsNamesList(intent);
+        Map<String,String> map = new HashMap<>();
+        String stringExtra;
+        for (String paramsName:paramsNamesList
+                ) {
+            stringExtra= intent.getStringExtra(paramsName);
+            map.put(paramsName,stringExtra);
+        }
+
+        return map;
+    }
+
+
+    public static Parcelable getParcelableExtra(Intent intent){
+        return intent.getParcelableExtra(RouterProcessFactor.PARAMS);
+    }
 }

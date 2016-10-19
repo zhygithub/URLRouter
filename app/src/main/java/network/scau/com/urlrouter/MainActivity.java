@@ -4,11 +4,9 @@ import android.app.Activity;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.View;
-import android.widget.Toast;
-
-import com.scau.UrlBinding;
 
 import URLMap.network.scau.com.urlrouter.map.BaseMap$SUFFIX;
+import network.scau.com.urlrouter.dispatch.Router;
 
 public class MainActivity extends AppCompatActivity {
 

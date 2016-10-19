@@ -10,7 +10,7 @@ import com.scau.UrlBinding;
 
 import network.scau.com.urlrouter.BaseMap;
 import network.scau.com.urlrouter.R;
-import network.scau.com.urlrouter.Router;
+import network.scau.com.urlrouter.dispatch.Router;
 
 @UrlBinding(url = BaseMap.A,controller = "network.scau.com.urlrouter.c.A_Activity")
 public class A_Activity extends Activity {
